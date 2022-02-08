@@ -19,7 +19,7 @@ body {
   height: 100vh;
   width: 100vw;
   display: grid;
-  place-items: center;
+  align-items: center;
 }
 
 .intro_div {
@@ -33,57 +33,90 @@ body {
   font-size: 13rem;
   font-weight: bold;
   color: rgb(234 15 30);
-  padding: 0 2rem 1rem 1rem;
+  padding: 0 3rem 1rem 1rem;
   position: relative;
+}
+
+a {
+  text-decoration: none;
 }
 
 .about {
   color: rgb(255 255 255);
 }
 
-ul {
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
+.about::before {
+  content: "Hello.";
 }
 
-li {
-  color: #576574;
-  animation: light 1.3s linear infinite;
+.intro::before {
+  content: "I am";
 }
 
-@-webkit-keyframes light {
+.myName::before {
+  content: "Pankaj";
+}
+
+.center__tap {
+  /* border: 1px solid white; */
+  margin-top: auto;
+  height: 8rem;
+  display: grid;
+  place-content: center;
+}
+.bounce {
+  font-size: 2rem;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+  animation: bounce 1s linear infinite;
+}
+
+@-webkit-keyframes bounce {
   0% {
-    color: #576574;
-    text-shadow: none;
+    -webkit-transform: translateY(0px);
   }
-  90% {
-    color: #576574;
-    text-shadow: none;
-  }
-  100% {
-    color: #f1c40f;
-    text-shadow: 0 0 1rem #d35400, 0 0 7rem #d35400;
+  50% {
+    -webkit-transform: translateY(10px);
   }
 }
 
-.myName ul li:nth-child(1) {
-  animation-delay: 0s;
+@media screen and (min-width: 775px) {
+  .intro_div--div {
+    transition: transform 0.3s linear;
+  }
+
+  .about:hover::before {
+    content: "About";
+  }
+
+  .intro:hover::before {
+    content: "Work";
+  }
+
+  .myName:hover::before {
+    content: "Contact";
+  }
+
+  .about:hover::before {
+    content: "About";
+  }
+
+  .intro_div--div:hover {
+    transform: translateX(2rem);
+  }
+  .bounce {
+    display: none;
+  }
 }
 
-.myName ul li:nth-child(2) {
-  animation-delay: 0.1s;
-}
+@media screen and (max-width: 775px) {
+  .intro_div--div {
+    font-size: 12em;
+  }
 
-.myName ul li:nth-child(3) {
-  animation-delay: 0.2s;
-}
-.myName ul li:nth-child(4) {
-  animation-delay: 0.3s;
-}
-.myName ul li:nth-child(5) {
-  animation-delay: 0.4s;
-}
-.myName ul li:nth-child(6) {
-  animation-delay: 0.5s;
+  .intro_div a {
+    pointer-events: none;
+    cursor: default;
+  }
 }
