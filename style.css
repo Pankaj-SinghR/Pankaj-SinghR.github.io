@@ -58,8 +58,8 @@ a {
 }
 
 .center__tap {
-  /* border: 1px solid white; */
-  margin-top: auto;
+  position: relative;
+  top: 20%;
   height: 8rem;
   display: grid;
   place-content: center;
@@ -111,6 +111,11 @@ a {
 }
 
 @media screen and (max-width: 775px) {
+  .intro_div {
+    position: absolute;
+    top: 15%;
+  }
+
   .intro_div--div {
     font-size: 12em;
   }
